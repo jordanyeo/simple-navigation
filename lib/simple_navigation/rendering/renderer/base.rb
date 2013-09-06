@@ -80,7 +80,11 @@ module SimpleNavigation
         if suppress_link?(item)
           content_tag('span', item.name, link_options_for(item).except(:method))
         else
-          link_to('<div class="menu_bg"></div><i class="icon-magic"></i><span>' + item.name + '</span>', item.url, options_for(item))
+          if @renderer == :breadcrumbs
+            link_to('<div class="menu_bg"></div><i class="icon-magic"></i><span>' + item.name + '</span>', item.url, options_for(item))
+          else
+            link_to(item.name, item.url, options_for(item))
+          end
         end
       end
 
