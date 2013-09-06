@@ -80,7 +80,7 @@ module SimpleNavigation
         if suppress_link?(item)
           content_tag('span', item.name, link_options_for(item).except(:method))
         else
-          link_to("<div class=\"menubg\"></div><i class=\"icon-#{item.name.lowercase}\"></i><span>" + item.name + '</span>', item.url, options_for(item))
+          link_to("<div class=\"menubg\"></div><i class=\"icon-#{item.name.downcase}\"></i><span>" + item.name + '</span>', item.url, options_for(item))
         end
       end
 
