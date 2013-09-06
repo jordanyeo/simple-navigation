@@ -28,9 +28,12 @@ module SimpleNavigation
     # the name will be passed to the name_generator specified in the configuration.
     #
     def name(options = {})
-
+      options.reverse_merge!(:apply_generator => true)
+      if (options[:apply_generator])
+        SimpleNavigation.config.name_generator.call(@name)
+      else
         @name
-
+      end
     end
 
     # Returns true if this navigation item should be rendered as 'selected'.
