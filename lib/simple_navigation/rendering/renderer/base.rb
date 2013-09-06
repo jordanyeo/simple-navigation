@@ -83,7 +83,7 @@ module SimpleNavigation
           if @renderer == :breadcrumbs
             link_to('<div class="menu_bg"></div><i class="icon-magic"></i><span>' + item.name + '</span>', item.url, options_for(item))
           else
-            link_to(item.name, item.url, options_for(item))
+            link_to(@renderer.inspect, item.url, options_for(item))
           end
         end
       end
