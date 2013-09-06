@@ -16,7 +16,7 @@ module SimpleNavigation
           if include_sub_navigation?(item)
             li_content << render_sub_navigation_for(item)
           end
-          list << content_tag(:li, '<div class="menu_bg"></div><i class="icon-magic"></i><span>' + li_content + '</span>', li_options)
+          list << content_tag(:li, li_content, li_options)
         end.join
         if skip_if_empty? && item_container.empty?
           ''
@@ -27,5 +27,3 @@ module SimpleNavigation
     end
   end
 end
-#'<div class="menu_bg"></div><i class="icon-magic"></i><span>'
-#'</span>'
